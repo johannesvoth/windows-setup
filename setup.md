@@ -47,3 +47,14 @@ $settings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoi
 Register-ScheduledTask -TaskName "SetWallpaperOnLogon" -Action $action -Trigger $trigger -Settings $settings -Force
 Write-Host "Scheduled task 'SetWallpaperOnLogon' successfully created!" -ForegroundColor Green
 ```
+
+## Undo
+
+Run in PowerShell to remove the scheduled tasks, wallpaper script, and restore the watermark service. Admin rights are required for the watermark changes.
+
+```powershell
+Set-ExecutionPolicy Bypass -Scope Process -Force
+.\undo.ps1
+```
+
+If you are not already running as Administrator, right-click PowerShell and choose **Run as administrator**, then run the commands above again to finish cleanup.
